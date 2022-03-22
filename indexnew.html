@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <title>Title</title>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="css/owl.carousel.min.css">
+      <link rel="stylesheet" href="css/owl.theme.default.min.css">
+      <style>
+         /*carousel css*/
+         .slideState{ 
+         height: 2px; 
+         width: 50%;
+         background: #ececec; 
+         position: relative;
+         margin-right: 15px;
+         }
+         .slideState span{
+         position: absolute; 
+         height: 100%; 
+         background: #d9961c; 
+         left: 0; 
+         top: 0; 
+         transition: all 0.5s ease; 
+         color:transparent; 
+         padding-left: 15px;
+         }
+         .progress-counter-sec{
+         position: relative;
+         }
+         .counter-sec{
+         width: 40%;
+         margin: 0 auto;
+         z-index: 111;
+         position: absolute;
+         left: 0;
+         right: 0;
+         top: -40px;
+         }
+         .carousel-caption-1 {
+         position: absolute;
+         top: -300px;
+         left: 0;
+         z-index: 111;
+         right: 0;
+         color: #fff;
+         bottom: auto;
+         }
+         .owlcaraousel .item img {
+         height: 500px;
+         object-fit: cover;
+         }
+         .owlcaraousel .owl-nav {
+         position: absolute;
+         left: 65%;
+         bottom: -1px;
+         font-size: 50px;
+         color: #fff;
+         }
+         #counter{
+         color: #fff;
+         }
+         /*carousel css*/
+         /*hamburger menu css css*/
+         .nav-container {
+         position: relative;
+         max-width: 50px;
+         max-height: 50px;
+         overflow: visible;
+         outline: none;
+         }
+         .nav-container.is-active .nav-toggle:before, .nav-container.is-active .nav-toggle:after {
+         box-shadow: none;
+         }
+         .nav-container.is-active .nav-toggle:before {
+         transform: rotate(-45deg);
+         background-color: #fff;
+         left:230px;
+         }
+         .nav-container.is-active .nav-toggle:after {
+         transform: rotate(45deg);
+         background-color: #fff;
+         left:230px;
+         }
+         .nav-container.is-active .nav-items {
+         transform: translate(0, 0);
+         }
+         .nav-container .nav-toggle {
+         position: fixed;
+         width: 40px;
+         height: 40px;
+         z-index: 2;
+         }
+         .nav-container .nav-toggle:hover {
+         cursor: pointer;
+         }
+         .nav-container .nav-toggle:before, .nav-container .nav-toggle:after {
+         content: "";
+         position: absolute;
+         top: 18px;
+         left: 0;
+         transform: translate(0, 0);
+         width: 100%;
+         height: 4px;
+         background: #f5b94c;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         }
+         .nav-container .nav-toggle:before {
+         box-shadow: 0 13.3333333333px 0 0 #f5b94c;
+         }
+         .nav-container .nav-toggle:after {
+         box-shadow: 0 -13.3333333333px 0 0 #f5b94c;
+         }
+         .nav-container .nav-items {
+         position: absolute;
+         top: 0;
+         left: 0;
+         min-width: 300px;
+         max-width: 50vw;
+         /* width: 100vw; */
+         height: 100vh;
+         z-index: 1;
+         padding: 80px 20px 20px 30px;
+         transition: transform 0.3s ease;
+         transform: translate(calc(-100% - 50px), 0);
+         background: #f5b94c;
+         display: grid;
+         grid-template-columns: 1fr;
+         grid-gap: 5px 0;
+         align-content: start;
+         }
+         .nav-container .nav-items .nav-item {
+         padding: 5px;
+         transition: background-color 0.3s ease;
+         color: #fff;
+         }
+         .nav-container .nav-items .nav-item:hover {
+         cursor: pointer;
+         background: #fff;
+         color: #f5b94c;
+         }
+         .owl-carousel {
+         z-index: 0;
+         }
+         .blank-div-height{
+         height: 50px;
+         }
+         .separator:after {
+         content: "";
+         display: block;
+         width: 50%;
+         height: 2px;
+         margin: 5px;
+         background-color: #fff;
+         }
+         .user-profile{
+         padding: 5px;
+         }
+         .user-profile .fa{
+         color: #fff;
+         }
+         .username{
+         color: #fff;
+         padding-top: 10px;
+         }
+         .username::after{
+         content: "";
+         display: block;
+         width: 15%;
+         height: 2px;
+         margin-top: 5px;
+         background-color: #fff;
+         }
+         .searchbar{
+         border-bottom: 1px solid #fff;
+         }
+         .searchbar input{
+         background-color: transparent;
+         }
+         .searchbar ::placeholder, .searchbar .fa{
+         color: #fff;
+         }
+         /*hamburger menu css css*/
+         /*trending article css*/
+         .article-box .article-img{
+         position: relative;
+         }
+         .article-box .article-img h5{
+         background-color: #0303b5;
+         color: #fff;
+         font-size: 16px;
+         padding: 8px 15px;
+         display: inline-block;
+         position: absolute;
+         left: 15px;
+         bottom: -20px;
+         }
+         .owlarticleSlide .item{
+         border: 2px solid #eef0ef;
+         margin-right: 10px;
+         }
+         .article-content h4{
+         margin-top: 15px;
+         }
+         .article-content {
+         padding: 15px;
+         }
+         .owlarticleSlide .owl-nav {
+         position: absolute;
+         left: 65%;
+         bottom: -42px;
+         font-size: 50px;
+         color: #000;
+         }
+         .counter-article-sec {
+         width: 40%;
+         margin: 0 auto;
+         }
+         .article-content a{
+         color: #000;
+         text-decoration: underline;
+         }
+         .owl-stage{
+         padding-left:0px !important;
+         }
+         /*trending article css*/
+         /*back to top section start*/
+         html{
+            scroll-behavior: smooth;
+        }
+         .back-to-top {
+         border-radius: 0px;
+         background-color: #f5b94c;
+         color: #fff;
+         width: 30px;
+         height: 90px;
+         text-decoration: none;
+         -webkit-transition: all 0.5s ease-in-out;
+         -moz-transition: all 0.5s ease-in-out;
+         -ms-transition: all 0.5s ease-in-out;
+         -o-transition: all 0.5s ease-in-out;
+         transition: all 0.25s ease-in-out;
+         }
+         .back-to-top:hover{
+         color: #fff;
+         }
+         /*back to top sec end*/
+         /*quiz section start*/
+         #question label {
+         display: inline-block;
+         margin: 10px 5px;
+         padding: 15px;
+         border: 1px solid #000;
+         color: #4C3000;
+         border-radius: 5px;
+         width: calc(50% - 14px);
+         min-width: 50px;
+         cursor: pointer;
+         }
+         #question input[type=radio] {
+         display: none;
+         }
+         #question input[type=radio]:checked + label {
+         background: #f5b94c;
+         border: 1px solid #f5b94c;
+         color: #fff;
+         }
+         .question-heading{
+         margin: 8px;
+         }
+         .question-heading h2{
+         padding: 0px 30px;
+         }
+         .question-heading::before{
+         content: "";
+         display: block;
+         border: 1px solid #000;
+         border-bottom: none;
+         height: 45px;
+         }
+         .question-heading::after {
+         content: "";
+         display: block;
+         border: 1px solid #000;
+         border-top: none;
+         height: 45px;
+         }
+         .display-btn{
+         padding: 17px;
+         background-color: #000;
+         color: #fff;
+         border-radius: 0px;
+         width: 98.5%;
+         display: block;
+         margin: 0 auto;
+         font-size: 20px;
+         }
+         .display-btn:hover {
+                color: #fff;
+        }
+         .quiz-content .btn-div{
+         margin: 30px 0px;
+         }
+         .quiz-section .quiz-question-sec{
+           padding: 0 100px;
+         }
+         /*quiz section end*/
+         /*quiz sidebar start*/
+         .quiz-sidebar .sidebar-item img {
+            width: 80px;
+            float: left;
+            border-radius: 7px;
+        }
+        .quiz-sidebar{
+            padding-right: 40px;
+        }
+        .quiz-sidebar .sidebar-title{
+            margin-bottom: 20px;
+        }
+        .quiz-sidebar .sidebar-item h4 {
+            font-size: 15px;
+            margin-left: 95px;
+            font-weight: bold;
+        }
+        .quiz-sidebar .sidebar-item h4 a{
+            color: #000;
+            text-decoration: none;
+        }
+        .quiz-sidebar .sidebar-item p{
+            margin-left: 95px;
+            font-size: 14px;
+            color: #000;
+            margin-bottom: 0px;
+        }
+        .quiz-sidebar .sidebar-item{
+            border: 1px solid #eeee;
+            border-radius: 5px;
+        }
+        .quiz-sidebar .sidebar-item .trending-item {
+            border-bottom: 1px solid #eeee;
+            padding: 15px 30px 10px 15px;
+        }
+        .sidebar-display-box{
+            background-color: #000;
+            color: #fff;
+            width: 100%;
+            height: 210px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+        }
+         /*quiz sidebar end*/
+          /*Responsive start*/
+        @media (max-width: 767px)
+        {
+            .quiz-section .quiz-question-sec {
+               padding: 0 10px;
+             }
+            .quiz-sidebar {
+                padding-right: 0px;
+            }
+        }
+      </style>
+   </head>
+   <body>
+      <div class="nav-container" tabindex="0">
+         <div class="nav-toggle"></div>
+         <nav class="nav-items">
+            <form>
+               <div class="input-group mb-2  searchbar">
+                  <div class="input-group-prepend border-0">
+                     <button type="button" class="btn"><i class="fa fa-search"></i></button>
+                  </div>
+                  <input type="search" placeholder="Search"  class="form-control border-0">
+               </div>
+            </form>
+            <div class="user-profile">
+               <span><i class="fa fa-user-o" aria-hidden="true"></i></span>
+               <p class="username">User Name</p>
+            </div>
+            <a class="nav-item" href="#">Article Gallery</a>
+            <a class="nav-item" href="#">Video Gallery</a>
+            <a class="nav-item" href="#">Quiz Gallery</a>
+            <a class="nav-item" href="#">Shopping Gallery</a>
+            <a class="nav-item" href="#">Logout </a>
+            <div class="blank-div-height"></div>
+            <div class="separator"></div>
+            <a class="nav-item" href="#" >About Us</a>
+            <a class="nav-item" href="#">Contact Us</a>
+            <a class="nav-item" href="#">Terms of Use</a>
+            <a class="nav-item" href="#">Privacy Policy </a>
+         </nav>
+      </div>
+      <!-- Slider -->
+      <!-- <section class="owlcaraousel">
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="owlSlide owl-carousel">
+                  <div class="item">
+                     <img src="images/hero-bg2.jpg" class="img-fluid" alt="">
+                     <div class="container">
+                        <div class="col-lg-6">
+                           <div class="carousel-caption-1">
+                              <h1>We are creative 1</h1>
+                              <p>Team with big talents</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="item">
+                     <img src="images/hero-bg2.jpg" class="img-fluid" alt="">
+                     <div class="container">
+                        <div class="col-lg-6">
+                           <div class="carousel-caption-1">
+                              <h1>We are creative 2</h1>
+                              <p>Team with big talents</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="item">
+                     <img src="images/hero-bg2.jpg" class="img-fluid" alt="">
+                     <div class="container">
+                        <div class="col-lg-6">
+                           <div class="carousel-caption-1">
+                              <h1>We are creative 3</h1>
+                              <p>Team with big talents</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="item">
+                     <img src="images/hero-bg2.jpg" alt="">
+                     <div class="container">
+                        <div class="col-lg-6">
+                           <div class="carousel-caption-1">
+                              <h1>We are creative 4</h1>
+                              <p>Team with big talents</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="item">
+                     <img src="images/hero-bg2.jpg" alt="">
+                     <div class="container">
+                        <div class="col-lg-6">
+                           <div class="carousel-caption-1">
+                              <h1>We are creative 5</h1>
+                              <p>Team with big talents</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="progress-counter-sec">
+                  <div class="d-flex justify-content-center counter-sec align-items-center">
+                     <div class="slideState"><span></span></div>
+                     <span id="counter" class="">
+                  </div>
+                 
+               </div>
+            </div>
+         </div>
+         </section> -->
+      <section class="trending-article-sec mb-5">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-12">
+                  <div class="section-heading mb-3">
+                     <h1>Trending Article</h1>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container-fluid px-0">
+            <div class="row mx-0">
+               <div class="col-lg-12 px-0">
+                  <div class="owlarticleSlide owl-carousel">
+                     <div class="item">
+                        <div class="article-box" >
+                           <div class="article-img">
+                              <img src="images/article-1.jpg">
+                              <h5 class="title">New Post</h5>
+                           </div>
+                           <div class="article-content" >
+                              <h4 class="description">The 8 best celebs Diet plans, sustainabilty, weight loss</h4>
+                              <a class="read-more-link" href="#">Read This Post</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="item">
+                        <div class="article-box" >
+                           <div class="article-img">
+                              <img src="images/article-1.jpg">
+                              <h5 class="title">New Post</h5>
+                           </div>
+                           <div class="article-content" >
+                              <h4 class="description">The 8 best celebs Diet plans, sustainabilty, weight loss</h4>
+                              <a class="read-more-link" href="#">Read This Post</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="item">
+                        <div class="article-box" >
+                           <div class="article-img">
+                              <img src="images/article-1.jpg">
+                              <h5 class="title">New Post</h5>
+                           </div>
+                           <div class="article-content" >
+                              <h4 class="description">The 8 best celebs Diet plans, sustainabilty, weight loss</h4>
+                              <a class="read-more-link" href="#">Read This Post</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="item">
+                        <div class="article-box" >
+                           <div class="article-img">
+                              <img src="images/article-1.jpg">
+                              <h5 class="title">New Post</h5>
+                           </div>
+                           <div class="article-content" >
+                              <h4 class="description">The 8 best celebs Diet plans, sustainabilty, weight loss</h4>
+                              <a class="read-more-link" href="#">Read This Post</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="item">
+                        <div class="article-box" >
+                           <div class="article-img">
+                              <img src="images/article-1.jpg">
+                              <h5 class="title">New Post</h5>
+                           </div>
+                           <div class="article-content" >
+                              <h4 class="description">The 8 best celebs Diet plans, sustainabilty, weight loss</h4>
+                              <a class="read-more-link" href="#">Read This Post</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="item">
+                        <div class="article-box" >
+                           <div class="article-img">
+                              <img src="images/article-1.jpg">
+                              <h5 class="title">New Post</h5>
+                           </div>
+                           <div class="article-content" >
+                              <h4 class="description">The 8 best celebs Diet plans, sustainabilty, weight loss</h4>
+                              <a class="read-more-link" href="#">Read This Post</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="item">
+                        <div class="article-box" >
+                           <div class="article-img">
+                              <img src="images/article-1.jpg">
+                              <h5 class="title">New Post</h5>
+                           </div>
+                           <div class="article-content" >
+                              <h4 class="description">The 8 best celebs Diet plans, sustainabilty, weight loss</h4>
+                              <a class="read-more-link" href="#">Read This Post</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="progress-counter-sec">
+                     <div class="d-flex justify-content-center counter-article-sec  align-items-center">
+                        <div class="slideState slideStatearticle"><span></span></div>
+                        <span id="counterarticle" class="">
+                     </div>
+                     <!-- </span> -- <span class="slTxt"></span> -->
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- Slider End -->  
+      <section class="quiz-section my-3">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-9">
+                   <div class="quiz-question-sec">
+                  <div class="quiz-content">
+                     <div class="question-heading">
+                        <h2>"Small town boy in a big<br> arcade..."</h2>
+                     </div>
+                     <div id="question">
+                        <input id="choices-0" type="radio" name="choices" value="choices-0"><label for="choices-0">A. Option A</label>
+                        <input id="choices-1" type="radio" name="choices" value="choices-1"><label for="choices-1">B. Option B</label>
+                        <input id="choices-2" type="radio" name="choices" value="choices-2"><label for="choices-2">C. Option C</label>
+                        <input id="choices-3" type="radio" name="choices" value="choices-3"><label for="choices-3">D. Option D</label>
+                     </div>
+                  </div>
+                  <div class="quiz-content mt-4">
+                     <div class="question-heading">
+                        <h2>Would you interested in providing content for this newsletter ?</h2>
+                     </div>
+                     <div id="question">
+                        <input id="choices-0-newsletter" type="radio" name="choices" value="choices-0-newsletter"><label for="choices-0-newsletter">A. Option A</label>
+                        <input id="choices-1-newsletter" type="radio" name="choices" value="choices-1-newsletter"><label for="choices-1-newsletter">B. Option B</label>
+                        <input id="choices-2-newsletter" type="radio" name="choices" value="choices-2-newsletter"><label for="choices-2-newsletter">C. Option C</label>
+                        <input id="choices-3-newsletter" type="radio" name="choices" value="choices-3-newsletter"><label for="choices-3-newsletter">D. Option D</label>
+                     </div>
+                     <div class="btn-div">
+                        <button class="btn display-btn">display ads SIZE 728*90</button>
+                     </div>
+                  </div>
+                  <div class="quiz-content">
+                     <div class="question-heading">
+                        <h2>"Deddar tete milne ke bad hi..."</h2>
+                     </div>
+                     <div id="question">
+                        <input id="choices-0-que-3" type="radio" name="choices" value="choices-0-que-3"><label for="choices-0-que-3">A. Option A</label>
+                        <input id="choices-1-que-3" type="radio" name="choices" value="choices-1-que-3"><label for="choices-1-que-3">B. Option B</label>
+                        <input id="choices-2-que-3" type="radio" name="choices" value="choices-2-que-3"><label for="choices-2-que-3">C. Option C</label>
+                        <input id="choices-3-que-3" type="radio" name="choices" value="choices-3-que-3"><label for="choices-3-que-3">D. Option D</label>
+                     </div>
+                  </div>
+                  <div class="quiz-content">
+                     <div class="question-heading">
+                        <h2>"Deddar tete milne ke bad hi..."</h2>
+                     </div>
+                     <div id="question">
+                        <input id="choices-0-que-4" type="radio" name="choices" value="choices-0-que-3"><label for="choices-0-que-4">A. Option A</label>
+                        <input id="choices-1-que-4" type="radio" name="choices" value="choices-1-que-3"><label for="choices-1-que-4">B. Option B</label>
+                        <input id="choices-2-que-4" type="radio" name="choices" value="choices-2-que-3"><label for="choices-2-que-4">C. Option C</label>
+                        <input id="choices-3-que-4" type="radio" name="choices" value="choices-3-que-3"><label for="choices-3-que-4">D. Option D</label>
+                     </div>
+                  </div>
+                  <div class="quiz-content mt-4">
+                     <div class="question-heading">
+                        <h2>"Deddar tete milne ke bad hi..."</h2>
+                     </div>
+                     <div id="question">
+                        <input id="choices-0-last" type="radio" name="choices" value="choices-0-last"><label for="choices-0-last">A. Option A</label>
+                        <input id="choices-1-last" type="radio" name="choices" value="choices-1-last"><label for="choices-1-last">B. Option B</label>
+                        <input id="choices-2-last" type="radio" name="choices" value="choices-2-last"><label for="choices-2-last">C. Option C</label>
+                        <input id="choices-3-last" type="radio" name="choices" value="choices-3-last"><label for="choices-3-last">D. Option D</label>
+                     </div>
+                     <div class="btn-div">
+                        <button class="btn display-btn">display ads SIZE 728*90</button>
+                     </div>
+                  </div>
+                </div>
+               </div>
+               <div class="col-lg-3">
+                   <div class="quiz-sidebar">
+                    <h3 class="sidebar-title">TRENDING</h3>
+                    <div class="sidebar-item">
+                        <div class="trending-item">
+                          <img src="images/trending.jpg" alt="">
+                          <h4><a href="#">When trump has whitetaker</a></h4>
+                          <p>23 FEB 2022</p>
+                        </div>
+                        <div class="trending-item ">
+                            <img src="images/trending.jpg" alt="">
+                            <h4><a href="#">When trump has whitetaker</a></h4>
+                            <p>23 FEB 2022</p>
+                        </div>
+                        <div class="trending-item ">
+                            <img src="images/trending.jpg" alt="">
+                            <h4><a href="#">When trump has whitetaker</a></h4>
+                            <p>23 FEB 2022</p>
+                        </div>
+                        <div class="trending-item ">
+                            <img src="images/trending.jpg" alt="">
+                            <h4><a href="#">When trump has whitetaker</a></h4>
+                            <p>23 FEB 2022</p>
+                        </div>
+                        <div class="trending-item ">
+                            <img src="images/trending.jpg" alt="">
+                            <h4><a href="#">When trump has whitetaker</a></h4>
+                            <p>23 FEB 2022</p>
+                        </div>
+                        <div class="trending-item ">
+                            <img src="images/trending.jpg" alt="">
+                            <h4><a href="#">When trump has whitetaker</a></h4>
+                            <p>23 FEB 2022</p>
+                        </div>
+        
+                      
+        
+                      </div>
+                      <div class="sidebar-display-box">
+                         <h3 class="text-center">display ads size 300*250</h3>
+                      </div>
+                   </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer>
+         <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+               <a href="#" class="back-to-top d-flex align-items-center justify-content-center active">
+                  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+               </a>
+              </div>
+            </div>
+         </div>
+      </footer>
+     
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script src="js/owl.carousel.min.js"></script>
+      <script>
+         $(function(){
+         $('.owlSlide').owlCarousel({
+         smartSpeed: 500,
+         items: 1,
+         margin:0,
+         nav:true,
+         dots:false,
+         autoplay:true,
+         onInitialized:counter,
+         onTranslated:counter
+         });
+         function counter(event) {
+         var element = event.target;
+         var items = event.item.count;
+         var item = event.item.index + 1;
+         var sldtxt = $('.active .ivySlideTxt').html();
+         var sldWidth = 100;
+         var sldPercent = sldWidth * item / items;
+         $('#counter').html("<span>0"+item+"</span> / 0"+items);
+         $('.slTxt').html(sldtxt);
+         $('.slideState span').css("width", sldPercent + "%");
+         $('.slideState span').html(sldPercent + "%")
+         }
+         });
+      </script>
+      <script>
+         $(function(){
+         $('.owlarticleSlide').owlCarousel({
+         smartSpeed: 500,
+         stagePadding: 40,
+         margin:0,
+         items:4,
+         nav:true,
+         dots:true,
+         autoplay:true,
+         onInitialized:counter,
+         onTranslated:counter,
+         responsive: {
+                     0: {
+                         items: 1,
+                     },
+                     768: {
+                         items: 4
+                     },
+                     1170: {
+                         items: 4
+                     }
+             }
+         });
+         function counter(event) {
+         var element = event.target;
+         var items = event.item.count;
+         var item = event.item.index + 1;
+         var sldtxt = $('.active .ivySlideTxt').html();
+         var sldWidth = 100;
+         var sldPercent = sldWidth * item / items;
+         $('#counterarticle').html("0"+item+" / 0"+items);
+         $('.slTxt').html(sldtxt);
+         $('.slideStatearticle span').css("width", sldPercent + "%");
+         $('.slideStatearticle span').html(sldPercent + "%")
+         }
+         });
+      </script>
+      <script>
+         const nav = document.querySelector(".nav-container");
+         
+         if (nav) {
+         const toggle = nav.querySelector(".nav-toggle");
+         
+         if (toggle) {
+             toggle.addEventListener("click", () => {
+             if (nav.classList.contains("is-active")) {
+                 nav.classList.remove("is-active");
+             }
+             else {
+                 nav.classList.add("is-active");
+             }
+             });
+             
+             nav.addEventListener("blur", () => {
+             nav.classList.remove("is-active");
+             });
+         }
+         }
+      </script>
+   </body>
+</html>
